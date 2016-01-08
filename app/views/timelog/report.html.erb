@@ -4,7 +4,7 @@
 
 <%= render_timelog_breadcrumb %>
 
-<h2><%= l(:label_spent_time) %></h2>
+<h2>Informe</h2>
 
 <%= form_tag({:controller => 'timelog', :action => 'report',
               :project_id => @project, :issue_id => @issue},
@@ -29,9 +29,6 @@
 <% end %>
 
 <% unless @report.criteria.empty? %>
-<div class="total-hours">
-<p><%= l(:label_total_time) %>: <%= html_hours(l_hours(@report.total_hours)) %></p>
-</div>
 
 <% unless @report.hours.empty? %>
 <div class="autoscroll">
