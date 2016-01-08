@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem "rails", "3.2.13"
 gem "jquery-rails", "~> 2.0.2"
-gem "i18n", "~> 0.6.0"
 gem "coderay", "~> 1.0.9"
 gem "fastercsv", "~> 1.5.0", :platforms => [:mri_18, :mingw_18, :jruby]
 gem "builder", "3.0.0"
@@ -14,7 +13,7 @@ end
 
 # Optional gem for OpenID authentication
 group :openid do
-  gem "ruby-openid", "~> 2.2.3", :require => "openid"
+  gem "ruby-openid", "~> 2.3.0", :require => "openid"
   gem "rack-openid"
 end
 
@@ -31,7 +30,7 @@ end
 platforms :jruby do
   # jruby-openssl is bundled with JRuby 1.7.0
   gem "jruby-openssl" if Object.const_defined?(:JRUBY_VERSION) && JRUBY_VERSION < '1.7.0'
-  gem "activerecord-jdbc-adapter", "1.2.5"
+  gem "activerecord-jdbc-adapter", "~> 1.2.6"
 end
 
 # Include database gems for the adapters found in the database
@@ -81,6 +80,7 @@ group :test do
   gem "mocha", "~> 0.13.3"
   gem 'capybara', '~> 2.0.0'
   gem 'nokogiri', '< 1.6.0'
+  gem 'selenium-webdriver', '2.35.1'
 end
 
 local_gemfile = File.join(File.dirname(__FILE__), "Gemfile.local")
