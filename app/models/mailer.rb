@@ -45,7 +45,7 @@ class Mailer < ActionMailer::Base
     cc = issue.watcher_recipients - recipients
     mail :to => recipients,
       :cc => cc,
-      :subject => "[#{issue.project.name} - #{issue.tracker.name} ##{issue.id}] (#{issue.status.name}) #{issue.subject}"
+      :subject => "[#{issue.project.name} - #{issue.tracker.name} ##{issue.id}] #{issue.subject}"
   end
 
   # Builds a Mail::Message object used to email recipients of the edited issue.
@@ -66,7 +66,7 @@ class Mailer < ActionMailer::Base
     # Watchers in cc
     cc = journal.watcher_recipients - recipients
     s = "[#{issue.project.name} - #{issue.tracker.name} ##{issue.id}] "
-    s << "(#{issue.status.name}) " if journal.new_value_for('status_id')
+    #s << "(#{issue.status.name}) " if journal.new_value_for('status_id')
     s << issue.subject
     @issue = issue
     @journal = journal
