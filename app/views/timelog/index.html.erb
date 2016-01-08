@@ -6,15 +6,15 @@
 
 <%= render_timelog_breadcrumb %>
 
-<h2><%= l(:label_spent_time) %></h2>
+<h2>Informe de actividades</h2>
 
 <%= form_tag({:controller => 'timelog', :action => 'index', :project_id => @project, :issue_id => @issue}, :method => :get, :id => 'query_form') do %>
 <%= render :partial => 'date_range' %>
 <% end %>
 
-<div class="total-hours">
+<!--<div class="total-hours">
 <p><%= l(:label_total_time) %>: <%= html_hours(l_hours(@total_hours)) %></p>
-</div>
+</div>-->
 
 <% unless @entries.empty? %>
 <%= render :partial => 'list', :locals => { :entries => @entries }%>
