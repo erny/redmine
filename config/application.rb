@@ -55,6 +55,9 @@ module RedmineApp
 
     config.session_store :cookie_store, :key => '_redmine_session'
 
+    # !!!! Disable spoof check
+    config.action_dispatch.ip_spoofing_check = false
+
     if File.exists?(File.join(File.dirname(__FILE__), 'additional_environment.rb'))
       instance_eval File.read(File.join(File.dirname(__FILE__), 'additional_environment.rb'))
     end
